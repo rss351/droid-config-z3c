@@ -10,7 +10,7 @@ if [ ! -d /dev/block/platform/msm_sdcc.1/by-name/ ]; then
 fi
 
 # Make sure that the /etc/firmware directory is linked
-if [ -d /etc/firmware/ ]; then
+if [ ! -d /etc/firmware/ ]; then
     ln -s /system/etc/firmware /etc/
 fi
 
