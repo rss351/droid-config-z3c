@@ -14,8 +14,13 @@ if [ ! -d /etc/firmware/ ]; then
     ln -s /system/etc/firmware /etc/
 fi
 
-# Start tad static, which requires the above folder to exist.
-/system/bin/tad_static /dev/block/mmcblk0 1,16
+# Make sure that the codecs are linked
+if [ ! -f /etc/media_codecs.xml ]; then
+    ln -s /system/etc/media_*.xml /etc/
+fi
+
+# # Start tad static, which requires the above folder to exist.
+# /system/bin/tad_static /dev/block/mmcblk0 1,16
 
 # For some reason tad_static takes about a second to start and do it's thing.
 sleep 1
@@ -23,6 +28,6 @@ sleep 1
 # Now addrsetup can give our wlan device a mac address!
 ## /system/bin/addrsetup /sys/devices/platform/bcmdhd_wlan/macaddr
 
-# CM12 uses taimport instead
-/system/bin/taimport 
+# # CM12 uses taimport instead
+# /system/bin/taimport 
 
