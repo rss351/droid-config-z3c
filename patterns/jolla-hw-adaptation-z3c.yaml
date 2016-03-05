@@ -18,6 +18,8 @@ Requires:
 - droid-hal-version-z3c
 
 - pulseaudio-modules-droid
+# Add glue to make audio calls work
+- pulseaudio-modules-droid-glue
 
 # These need to be per-device due to differing backends (fbdev, eglfs, hwc, ..?)
 - qt5-qtwayland-wayland_egl
@@ -70,7 +72,7 @@ Requires:
 
 # Since 1.1.9 this needs to be added explicitly for cellular devices
 - pattern:jolla-sailfish-cellular-apps
-
+- telepathy-ring
 
 # to make the maps happy, works since 1.1.7
 #- geoclue-provider-hybris-community
